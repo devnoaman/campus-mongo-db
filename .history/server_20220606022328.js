@@ -1,6 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
 var cors = require('cors')
+const serverless = require('serverless-http');
+
 
 // var logger = require('morgan');
 // var bodyParser = require('body-parser');
@@ -64,3 +66,14 @@ var port = process.env.PORT || 3000;
 app.listen(port);
 console.log(`app run on port ${port}`)
 
+// this is it!
+module.exports.handler = serverless(app);
+
+// or as a promise
+const handler = serverless(app);
+module.exports.handler = async (event, context) => {
+  // you can do other things here
+  const result = await handler(event, context);
+  // and here
+  return result;
+};

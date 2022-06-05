@@ -1,6 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
 var cors = require('cors')
+const serverless = require('serverless-http');
+
 
 // var logger = require('morgan');
 // var bodyParser = require('body-parser');
