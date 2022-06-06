@@ -41,7 +41,6 @@ module.exports = {
 
         new TeacherModel({
             username: req.body.username,
-            salt:salt,
             password: hash
         })
         .save()
@@ -69,19 +68,13 @@ module.exports = {
 
 
         TeacherModel.findOne({ username: req.body.username }, function (er, ad, res) { })
-            .then(async result => {
+            .then(result => {
                 if (!result) {
                     res.send(`there is no user name : ${req.body.username} `)
                 }
-
-
-             
-        
-              var v=await  bcrypt.compare(`${req.body.password}`, result.password);
+              var v=  bcrypt.compare(`${req.body.password}`, hash);
                 console.log(v)
-                // res.send(v)
-                v?res.send(result):res.sendStatus( 401 )
-               
+                res.send(v);
             })
             .catch(err => {
                 // ReplSet.send(err)

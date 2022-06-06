@@ -80,7 +80,7 @@ module.exports = {
               var v=await  bcrypt.compare(`${req.body.password}`, result.password);
                 console.log(v)
                 // res.send(v)
-                v?res.send(result):res.sendStatus( 401 )
+                v?res.send(result):res.sendStatus( 500 )
                
             })
             .catch(err => {

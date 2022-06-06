@@ -1,4 +1,4 @@
-var TeacherModel = require('../models/teacher');
+var Teacher = require('../models/teacher');
 
 const { hashSync, compareSync } = require("bcrypt");
 const { ReplSet } = require('mongodb');
@@ -39,9 +39,8 @@ module.exports = {
         });
 
 
-        new TeacherModel({
+        new Teacher({
             username: req.body.username,
-            salt:salt,
             password: hash
         })
         .save()
@@ -68,20 +67,21 @@ module.exports = {
 
 
 
-        TeacherModel.findOne({ username: req.body.username }, function (er, ad, res) { })
-            .then(async result => {
+        Teacher.findOne({ username: req.body.username }, function (er, ad, res) { })
+            .then(result => {
                 if (!result) {
                     res.send(`there is no user name : ${req.body.username} `)
                 }
+                bcrypt.compare(`${req.body.password}`, hash, function (err, e) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    res.send("done")
 
-
-             
-        
-              var v=await  bcrypt.compare(`${req.body.password}`, result.password);
-                console.log(v)
-                // res.send(v)
-                v?res.send(result):res.sendStatus( 401 )
-               
+                    // Use your response
+                });
+                console.log(result)
+                // res.send(result);
             })
             .catch(err => {
                 // ReplSet.send(err)
