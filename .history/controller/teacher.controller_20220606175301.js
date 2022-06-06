@@ -62,8 +62,8 @@ module.exports = {
 
 
         ) {
-            // res.sendStatus(401)
-            res.status(401).send( "add required fields")
+            res.sendStatus(401)
+            res.status(200).send({ message: "add required fields" })
         }
 
 
