@@ -44,7 +44,6 @@ app.use('/discover', discoverRoute);
 app.use('/service', servicesRoute);
 app.use('/notifications', notificationsRoute);
 app.use('/adds', adds);
-app.use('/apps', appsRoute);
 // app.use(express.static('public'))
 const path = require('path')
 var assetsPath = path.join(__dirname, 'public');
