@@ -40,20 +40,14 @@ app.use(express.json())
 app.use('/news', newsRoute);
 app.use('/students', students);
 app.use('/blogs', blogs);
-
-
 app.use('/auth', authRoute);
-
-
 app.use('/event', eventRoute);
 app.use('/discover', discoverRoute);
 app.use('/service', servicesRoute);
 app.use('/notifications', notificationsRoute);
 app.use('/adds', adds);
 app.use('/apps', appsRoute);
-
 app.use('/tasks', tasksRoute);
-app.use('/results', resultsRoute);
 // app.use(express.static('public'))
 const path = require('path')
 var assetsPath = path.join(__dirname, 'public');

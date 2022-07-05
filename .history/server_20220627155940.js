@@ -19,7 +19,6 @@ var notificationsRoute = require('./routes/notifications');
 var appsRoute = require('./routes/apps');
 var newsRoute = require('./routes/news');
 var tasksRoute = require('./routes/tasks');
-var resultsRoute = require('./routes/results');
 // const { add } = require('lodash');
 const app = express();
 // connect to mongodb & listen for requests
@@ -40,20 +39,14 @@ app.use(express.json())
 app.use('/news', newsRoute);
 app.use('/students', students);
 app.use('/blogs', blogs);
-
-
 app.use('/auth', authRoute);
-
-
 app.use('/event', eventRoute);
 app.use('/discover', discoverRoute);
 app.use('/service', servicesRoute);
 app.use('/notifications', notificationsRoute);
 app.use('/adds', adds);
 app.use('/apps', appsRoute);
-
 app.use('/tasks', tasksRoute);
-app.use('/results', resultsRoute);
 // app.use(express.static('public'))
 const path = require('path')
 var assetsPath = path.join(__dirname, 'public');
