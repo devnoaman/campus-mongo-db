@@ -63,7 +63,7 @@ app.use((req, res) => {
   res.status(404).render('404', { title: '404' });
 });
 
-var port = process.env.PORT || 3002;
+var port = process.env.PORT || 8080;
 app.listen(port);
 console.log(`app run on port ${port}`)
 // Export the Express API
